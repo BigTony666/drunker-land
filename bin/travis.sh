@@ -5,7 +5,7 @@ set -e
 npm run build
 
 # run unit test
-npm run test -- --single-run --no-progress --browser=ChromeHeadlessCI
+npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessCI
 
 # run e2e test
-npm run e2e -- --no-progress --config=protractor-ci.conf.js
+npm run e2e --configuration=ci

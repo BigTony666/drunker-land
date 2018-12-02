@@ -66,6 +66,9 @@
           "configurations": {
             "production": {
               "browserTarget": "drunker-land:build:production"
+            },
+            "ci": {
+              "progress": false
             }
           }
         },
@@ -120,6 +123,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "drunker-land:serve:production"
+            },
+            "ci": {
+              "devServerTarget": "drunker-land:serve:ci"
             }
           }
         },
