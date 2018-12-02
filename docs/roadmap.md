@@ -4,6 +4,8 @@
 
 1. Set up the TravisCI([ref](https://houssein.me/continuous-integration-angular-firebase-travisci))
 
+   TODO: use cache to reduce build time
+
 2. Initialize the project
 
 ## Tips
