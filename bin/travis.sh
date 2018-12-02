@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-# before setting
-npx -p @angular/cli
-
 # run installation
 npm ci
 
