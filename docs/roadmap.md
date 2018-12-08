@@ -8,6 +8,13 @@
 
 2. Initialize the project
 
+3. Login, register and alert component
+
+   1. TODO: alert service provide an observable to pass through message
+
+   2. TODO: Use Angular Router Guard to forbid the user to visit before he has logined
+
+   3. 
 ## Tips
 
 1. Use `npx` to run `angular cli` locally;
