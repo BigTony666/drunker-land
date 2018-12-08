@@ -17,12 +17,17 @@
       </li>
     </ul>
     <form class="form-inline input-group my-2 my-lg-0">
-      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Name</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
+      <!--<button class=" dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+      <select class="btn btn-outline-secondary" name="valid">
+        <optgroup label="Option" value="">
+          <option value="Name">Name</option>
+          <option value="Vintage">Vintage</option>
+          <option value="Color">Color</option>
+          <option value="Region">Region</option>
+          <option value="Appellation">Appellation</option>
+          <option value="Country">Country</option>
+        </optgroup>
+      </select>
       <input class="form-control mr-sm-2" type="search" placeholder="Quick search here" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
@@ -30,7 +35,8 @@
       <a class="btn list-inline-item" id="sign_in" href="/sign_in">Login / Sign up</a>
     </div>
   </div>
-
 </nav>
 
-<script>$('.dropdown-toggle').dropdown();</script>
+<script>
+  $('.dropdown-toggle').dropdown();
+</script>
