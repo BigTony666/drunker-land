@@ -16,17 +16,12 @@
         <a class="nav-link" href="">Conditions</a>
       </li>
     </ul>
-    <form class="form-inline input-group my-2 my-lg-0">
-      <!--<button class=" dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-      <select class="btn btn-outline-secondary" name="valid">
-        <optgroup label="Option" value="">
-          <option value="Name">Name</option>
-          <option value="Vintage">Vintage</option>
-          <option value="Color">Color</option>
-          <option value="Region">Region</option>
-          <option value="Appellation">Appellation</option>
-          <option value="Country">Country</option>
-        </optgroup>
+    <form class="form-inline input-group my-2 my-lg-0" >
+      <select name="state"  (change)="setCondition(condition)">
+        <option value="" disabled>Option</option>
+        <option *ngFor="let condition of conditions">
+          {{condition.name}}
+        </option>
       </select>
       <input class="form-control mr-sm-2" type="search" placeholder="Quick search here" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
