@@ -1,4 +1,4 @@
-import {Observable, of} from 'rxjs';
+import {Observable, of, from} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {Wine} from './wine.model';
 import {catchError, map, tap} from 'rxjs/operators';
@@ -48,15 +48,12 @@ export class WineService {
 
   // FIXME: Get wine from here using router
   getWines(): Observable<Wine[]> {
-    return this.wineesCollection.snapshotChanges()
+    return this.http.get<Wine[]>(AppConfig.backendURL + '/rest/api/wines/816')
       .pipe(
-        map((actions) => {
-          return actions.map((action) => {
-            const data = action.payload.doc.data();
-            return new Wine({id: action.payload.doc.id, ...data});
-          });
+        tap((wine) => {
+          LoggerService.log('fetched wines');
+          console.log(wine);
         }),
-        tap(() => LoggerService.log(`fetched wines`)),
         catchError(WineService.handleError('getWines', []))
       );
   }
