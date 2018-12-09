@@ -9,6 +9,15 @@ export class Wine implements Deserializable {
   avatarUrl: string;
   avatarThumbnailUrl: string;
 
+  appellation: String;
+  color: String;
+  region: String;
+  country: String;
+  vintage: String;
+  date: Date;
+  primeurs: Boolean;
+  score: Number;
+
   constructor(wine: any = {}) {
     this.id = wine.id;
     this.name = wine.name || '';

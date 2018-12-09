@@ -11,5 +11,6 @@ export const AppConfig: any = {
   topWinesLimit: 4,
   snackBarDuration: 3000,
   repositoryURL: '',
-  sentryDSN: ''
+  sentryDSN: '',
+  backendURL: 'http://localhost:8080',
 };

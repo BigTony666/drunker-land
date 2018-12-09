@@ -8,6 +8,7 @@ import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {LoggerService} from '../../../core/services/logger.service';
 import {AppConfig} from '../../../configs/app.config';
 import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from '@angular/fire/firestore';
+import { HttpClient } from '../../../../../node_modules/@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,8 @@ export class WineService {
 
   constructor(private afs: AngularFirestore,
               private translateService: TranslateService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private http: HttpClient) {
     this.wineesCollection = this.afs.collection<Wine>(AppConfig.routes.wines, (wine) => {
       return wine.orderBy('default', 'desc').orderBy('likes', 'desc');
     });

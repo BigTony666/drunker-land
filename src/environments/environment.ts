@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyC4RNNlqXSwTM1Kt6Pbgutq2yuavSQ9WnU',
-    authDomain: 'ismaestro-angularexampleapp.firebaseapp.com',
-    databaseURL: 'https://ismaestro-angularexampleapp.firebaseio.com',
-    projectId: 'ismaestro-angularexampleapp',
-    storageBucket: 'ismaestro-angularexampleapp.appspot.com',
-    messagingSenderId: '965114235515'
+    apiKey: 'AIzaSyDcJjIjQHmI2owftgdhejJhu9HB4Vf4xIY',
+    authDomain: 'drunker-land.firebaseapp.com',
+    databaseURL: 'https://drunker-land.firebaseio.com',
+    projectId: 'drunker-land',
+    storageBucket: 'drunker-land.appspot.com',
+    messagingSenderId: '594216727046'
   }
 };
