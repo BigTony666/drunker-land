@@ -6,13 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-nav.component.sass']
 })
 
-// @Component({
-//   selector: 'app-nav-form',
-//   template: `
-//
-//   `
-// })
-
 export class MainNavComponent implements OnInit {
 
   conditions = [
@@ -23,14 +16,18 @@ export class MainNavComponent implements OnInit {
     {name: 'Appellation'},
     {name: 'Country'}
   ];
+
+  key = '';
+  value = '';
+
   constructor() { }
 
   ngOnInit() {
-    // initPage();
-    //
-    // initData();
-    //
-    // initEvent();
+
+  }
+
+  search() {
+    // alert('search for ' + key + value);
   }
 
   setCondition(condition) {

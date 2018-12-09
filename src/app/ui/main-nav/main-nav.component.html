@@ -16,22 +16,21 @@
         <a class="nav-link" href="">Conditions</a>
       </li>
     </ul>
-    <form class="form-inline input-group my-2 my-lg-0" >
-      <select name="state"  (change)="setCondition(condition)">
+    <div class="form-inline input-group my-2 my-lg-0" >
+      <select [(ngModel)]="key" name="state" (change)="setCondition(conditions)">
         <option value="" disabled>Option</option>
         <option *ngFor="let condition of conditions">
           {{condition.name}}
         </option>
       </select>
-      <input class="form-control mr-sm-2" type="search" placeholder="Quick search here" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <input class="form-control mr-sm-2" [(ngModel)]="value" placeholder="Quick search here">
+      <button class="input-group-append btn btn-outline-success my-2 my-sm-0" (click)="search()" type="submit">
+        Search
+      </button>
+    </div>
     <div class="list-inline my-4" id="log-access">
       <a class="btn list-inline-item" id="sign_in" href="/sign_in">Login / Sign up</a>
     </div>
   </div>
 </nav>
 
-<script>
-  $('.dropdown-toggle').dropdown();
-</script>
