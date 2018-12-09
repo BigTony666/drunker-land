@@ -32,8 +32,9 @@
       }
 
       .icon__image {
-        width: calculateRem(20px);
-        height: calculateRem(20px);
+        padding: 0 8pt 0 8pt;
+        width: calculateRem(30px);
+        height: calculateRem(30px);
       }
 
       img {

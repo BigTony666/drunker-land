@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     // With this we load the default language in the main bundle (cache busting)
     this.translateService.setTranslation('en', require('../assets/i18n/en.json'));
 
-    this.title.setTitle('Angular Example App');
+    this.title.setTitle('Drunker Land');
 
     this.onEvents();
     this.checkBrowser();
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
           case '/':
             this.meta.updateTag({
               name: 'description',
-              content: 'Angular Example app with Angular CLI, Angular Material and more'
+              content: 'Drunker Land'
             });
             break;
           case '/' + AppConfig.routes.heroes:
