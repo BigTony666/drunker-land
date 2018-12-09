@@ -5,7 +5,7 @@ export class HomePage {
     return browser.get('/');
   }
 
-  static getNumberHeroes(): any {
-    return element.all(by.css('#heroes-list mat-card')).count();
+  static getNumberWines(): any {
+    return element.all(by.css('#wines-list mat-card')).count();
   }
 }

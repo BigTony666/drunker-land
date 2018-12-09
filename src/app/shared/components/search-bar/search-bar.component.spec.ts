@@ -5,18 +5,18 @@ import {TranslateModule} from '@ngx-translate/core';
 import {AppRoutingModule} from '../../../app-routing.module';
 import {APP_BASE_HREF} from '@angular/common';
 import {TestsModule} from '../../modules/tests.module';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
+import {WineService} from '../../../modules/wines/shared/wine.service';
 import {Router} from '@angular/router';
-import {Hero} from '../../../modules/heroes/shared/hero.model';
+import {Wine} from '../../../modules/wines/shared/wine.model';
 import {HomePageComponent} from '../../pages/home-page/home-page.component';
 import {Error404PageComponent} from '../../pages/error404-page/error404-page.component';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {of} from 'rxjs';
 
-describe('HeroSearchComponent', () => {
+describe('WineSearchComponent', () => {
   let fixture;
   let component;
-  let heroService;
+  let wineService;
 
   beforeEach((() => {
     TestBed.configureTestingModule({
@@ -39,36 +39,36 @@ describe('HeroSearchComponent', () => {
         },
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService
+        WineService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchBarComponent);
     component = fixture.debugElement.componentInstance;
-    heroService = TestBed.get(HeroService);
+    wineService = TestBed.get(WineService);
   }));
 
-  it('should create hero search component', (() => {
+  it('should create wine search component', (() => {
     fixture.detectChanges();
     expect(component).toBeTruthy();
   }));
 
-  it('should get all heroes', fakeAsync(() => {
-    spyOn(heroService, 'getHeroes').and.returnValue(of([new Hero({name: 'test1', default: true})]));
+  it('should get all wines', fakeAsync(() => {
+    spyOn(wineService, 'getWines').and.returnValue(of([new Wine({name: 'test1', default: true})]));
     fixture.detectChanges();
     tick();
 
-    expect(component.defaultHeroes.length).toBeGreaterThan(0);
-    for (const hero of component.defaultHeroes) {
-      expect(hero.default).toBe(true);
+    expect(component.defaultWines.length).toBeGreaterThan(0);
+    for (const wine of component.defaultWines) {
+      expect(wine.default).toBe(true);
     }
   }));
 
-  it('should filter heroes array', (() => {
+  it('should filter wines array', (() => {
     fixture.detectChanges();
 
-    component.defaultHeroes = [
+    component.defaultWines = [
       {
         'id': 1,
         'name': 'batman',
@@ -80,17 +80,17 @@ describe('HeroSearchComponent', () => {
         'default': false
       }
     ];
-    expect(component.filterHeroes('batman').length).toBe(1);
-    expect(component.filterHeroes('spiderman').length).toBe(0);
-    expect(component.filterHeroes().length).toBe(2);
+    expect(component.filterWines('batman').length).toBe(1);
+    expect(component.filterWines('spiderman').length).toBe(0);
+    expect(component.filterWines().length).toBe(2);
   }));
 
-  it('should navigate to hero detail', (() => {
+  it('should navigate to wine detail', (() => {
     fixture.detectChanges();
 
-    const heroId = 'BzTvl77YsRTtdihH0jeh';
+    const wineId = 'BzTvl77YsRTtdihH0jeh';
     const router = fixture.debugElement.injector.get(Router);
-    component.searchHero(new Hero({id: heroId}));
-    expect(router.navigate).toHaveBeenCalledWith(['heroes/' + heroId]);
+    component.searchWine(new Wine({id: wineId}));
+    expect(router.navigate).toHaveBeenCalledWith(['wines/' + wineId]);
   }));
 });

@@ -9,9 +9,9 @@ describe('Home page', function () {
     page = new HomePage();
   });
 
-  it('should contains heroes limit', () => {
+  it('should contains wines limit', () => {
     HomePage.navigateTo();
     browser.driver.sleep(2000);
-    expect<any>(HomePage.getNumberHeroes()).toBe(AppConfig.topHeroesLimit);
+    expect<any>(HomePage.getNumberWines()).toBe(AppConfig.topWinesLimit);
   });
 });

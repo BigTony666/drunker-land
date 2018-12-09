@@ -1,0 +1,17 @@
+<mat-card class="wine-card" *ngIf="wine">
+  <mat-card-header>
+    <div (click)="seeWineDetails(wine)" mat-card-avatar class="wine-header__image"
+         [ngStyle]="{'background-image': 'url(' + wine.avatarThumbnailUrl + ')'}"></div>
+    <mat-card-title (click)="seeWineDetails(wine)">{{wine.name}}</mat-card-title>
+    <mat-card-subtitle (click)="seeWineDetails(wine)">{{wine.alterEgo}}</mat-card-subtitle>
+    <div class="flex-spacer"></div>
+    <div class="wine-actions">
+      {{wine.likes}}
+      <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+                [matTooltipPosition]="'above'"
+                class="icon__like--red" (click)="like(wine)">favorite
+      </mat-icon>
+    </div>
+  </mat-card-header>
+  <img (click)="seeWineDetails(wine)" mat-card-image src="{{wine.avatarUrl}}">
+</mat-card>

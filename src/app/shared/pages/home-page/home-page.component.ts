@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Hero} from '../../../modules/heroes/shared/hero.model';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
+import {Wine} from '../../../modules/wines/shared/wine.model';
+import {WineService} from '../../../modules/wines/shared/wine.service';
 import {AppConfig} from '../../../configs/app.config';
 import {UtilsHelperService} from '../../../core/services/utils-helper.service';
 
@@ -12,14 +12,14 @@ import {UtilsHelperService} from '../../../core/services/utils-helper.service';
 })
 
 export class HomePageComponent implements OnInit {
-  heroes: Hero[] = null;
+  wines: Wine[] = null;
 
-  constructor(private heroService: HeroService) {
+  constructor(private wineService: WineService) {
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
-      this.heroes = heroes.slice(0, AppConfig.topHeroesLimit);
+    this.wineService.getWines().subscribe((wines: Array<Wine>) => {
+      this.wines = wines.slice(0, AppConfig.topWinesLimit);
     });
   }
 }

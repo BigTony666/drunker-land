@@ -28,7 +28,7 @@ h1, h2 {
   @include push--auto(2rem);
 }
 
-.hero-actions {
+.wine-actions {
   align-items: center;
   display: flex;
   padding-bottom: 1rem;
@@ -44,7 +44,7 @@ h1, h2 {
   cursor: pointer;
 }
 
-.hero-header__image {
+.wine-header__image {
   background-size: cover;
 }
 

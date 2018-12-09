@@ -52,11 +52,11 @@ export class AppComponent implements OnInit {
               content: 'Drunker Land'
             });
             break;
-          case '/' + AppConfig.routes.heroes:
-            this.title.setTitle('Heroes list');
+          case '/' + AppConfig.routes.wines:
+            this.title.setTitle('Wines list');
             this.meta.updateTag({
               name: 'description',
-              content: 'List of super-heroes'
+              content: 'List of super-wines'
             });
             break;
         }

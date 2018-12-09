@@ -2,8 +2,8 @@ import {map, startWith} from 'rxjs/operators';
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
-import {Hero} from '../../../modules/heroes/shared/hero.model';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
+import {Wine} from '../../../modules/wines/shared/wine.model';
+import {WineService} from '../../../modules/wines/shared/wine.service';
 import {LoggerService} from '../../../core/services/logger.service';
 import {AppConfig} from '../../../configs/app.config';
 
@@ -17,36 +17,36 @@ import {AppConfig} from '../../../configs/app.config';
 
 export class SearchBarComponent implements OnInit {
 
-  defaultHeroes: Array<Hero>;
-  heroFormControl: FormControl;
-  filteredHeroes: any;
+  defaultWines: Array<Wine>;
+  wineFormControl: FormControl;
+  filteredWines: any;
 
-  constructor(private heroService: HeroService,
+  constructor(private wineService: WineService,
               private router: Router) {
-    this.defaultHeroes = [];
-    this.heroFormControl = new FormControl();
+    this.defaultWines = [];
+    this.wineFormControl = new FormControl();
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
-      this.defaultHeroes = heroes.filter(hero => hero['default']);
+    this.wineService.getWines().subscribe((wines: Array<Wine>) => {
+      this.defaultWines = wines.filter(wine => wine['default']);
 
-      this.heroFormControl.valueChanges.pipe(
+      this.wineFormControl.valueChanges.pipe(
         startWith(null),
-        map(value => this.filterHeroes(value)))
-        .subscribe(heroesFiltered => {
-          this.filteredHeroes = heroesFiltered;
+        map(value => this.filterWines(value)))
+        .subscribe(wineesFiltered => {
+          this.filteredWines = wineesFiltered;
         });
     });
   }
 
-  filterHeroes(val: string): Hero[] {
-    return val ? this.defaultHeroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && hero['default'])
-      : this.defaultHeroes;
+  filterWines(val: string): Wine[] {
+    return val ? this.defaultWines.filter(wine => wine.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && wine['default'])
+      : this.defaultWines;
   }
 
-  searchHero(hero: Hero): Promise<boolean> {
-    LoggerService.log('Moved to hero with id: ' + hero.id);
-    return this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);
+  searchWine(wine: Wine): Promise<boolean> {
+    LoggerService.log('Moved to wine with id: ' + wine.id);
+    return this.router.navigate([AppConfig.routes.wines + '/' + wine.id]);
   }
 }

@@ -5,7 +5,7 @@ import {TestsModule} from './shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {AppRoutingModule} from './app-routing.module';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {HeroService} from './modules/heroes/shared/hero.service';
+import {WineService} from './modules/wines/shared/wine.service';
 import {CoreModule} from './core/core.module';
 import {APP_CONFIG, AppConfig} from './configs/app.config';
 import {SharedModule} from './shared/shared.module';
@@ -32,7 +32,7 @@ describe('AppComponent', () => {
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
         Title,
-        HeroService
+        WineService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
