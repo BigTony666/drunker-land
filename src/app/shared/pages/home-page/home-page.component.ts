@@ -22,4 +22,8 @@ export class HomePageComponent implements OnInit {
       this.wines = wines.slice(0, AppConfig.topWinesLimit);
     });
   }
+
+  onSearch(searchWines: Wine[]) {
+    this.wines = searchWines;
+  }
 }

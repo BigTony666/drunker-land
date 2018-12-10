@@ -5,13 +5,15 @@ import {SharedModule} from '../../shared/shared.module';
 import {WineRemoveComponent} from './components/wine-remove/wine-remove.component';
 import {WinesListPageComponent} from './pages/wines-list-page/wines-list-page.component';
 import {WineDetailPageComponent} from './pages/wine-detail-page/wine-detail-page.component';
+import { UiModule } from '../../ui/ui.module';
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    WineRoutingModule
+    WineRoutingModule,
+    UiModule,
   ],
   declarations: [
     WinesListPageComponent,

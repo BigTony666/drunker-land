@@ -17,6 +17,7 @@ import {WebStorageModule} from 'ngx-store';
 import {WineLoadingComponent} from './components/wine-loading/wine-loading.component';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
+import { UiModule } from '../ui/ui.module';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {LoadingPlaceholderComponent} from './components/loading-placeholder/load
     RouterModule,
     NgxExampleLibraryModule,
     WebStorageModule,
-    NgxScrollToFirstInvalidModule
+    NgxScrollToFirstInvalidModule,
+    UiModule
   ],
   declarations: [
     HomePageComponent,
@@ -55,7 +57,8 @@ import {LoadingPlaceholderComponent} from './components/loading-placeholder/load
     WineCardComponent,
     WineLoadingComponent,
     NgxScrollToFirstInvalidModule,
-    LoadingPlaceholderComponent
+    LoadingPlaceholderComponent,
+    UiModule,
   ]
 })
 

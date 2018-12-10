@@ -7,6 +7,7 @@ import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {AppConfig} from './configs/app.config';
 import {LocalStorage} from 'ngx-store';
 import {UtilsHelperService} from './core/services/utils-helper.service';
+import {WineServiceClient} from '../services/wine.service.client';
 
 declare const require;
 declare const Modernizr;
