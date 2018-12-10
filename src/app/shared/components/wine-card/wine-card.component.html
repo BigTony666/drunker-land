@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>{{wine.name}}</mat-card-title>
       <mat-card-subtitle class="body-1">
-        <span>Link:</span>{{wine.score}}
+        <span>Global Score:</span>{{wine.score}}
       </mat-card-subtitle>
       <mat-card-subtitle>
       </mat-card-subtitle>
@@ -30,5 +30,13 @@
         </ng-template>
       </mat-expansion-panel>
     </mat-card-content>
+    <mat-form-field>
+      <mat-select [(value)]="selected">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button>ADD</button>
   </mat-card>
 </mat-card-actions>

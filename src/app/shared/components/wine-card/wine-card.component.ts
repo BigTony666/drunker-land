@@ -16,6 +16,7 @@ export class WineCardComponent implements OnInit {
   canVote: boolean;
   appConfig: any;
   externalLink: string;
+  selectedNum: number;
 
   constructor(private wineService: WineService,
               private router: Router,
@@ -25,6 +26,7 @@ export class WineCardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.selectedNum = 1;
   }
 
   like(wine: Wine): Promise<void> {
