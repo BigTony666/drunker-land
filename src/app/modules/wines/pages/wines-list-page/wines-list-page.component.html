@@ -3,7 +3,7 @@
   <div>
     <mat-list id="loading-list" *ngIf="!wines">
       <mat-list-item *ngFor="let i of [1,2,3,4,5,6,7,8]">
-        <img mat-list-avatar src="assets/images/wines/default.png">
+        <img mat-list-avatar src="assets/images/wines/default.svg">
         <h3 mat-line>
           <app-loading-placeholder [width]="'150px'" [height]="'0.9rem'"></app-loading-placeholder>
         </h3>
@@ -21,9 +21,9 @@
       <mat-list-item *ngFor="let wine of wines" [@fadeInOut]>
         <img *ngIf="wine.default" class="cp"
              (click)="seeWineDetails(wine);" mat-list-avatar
-             src="{{wine.avatarThumbnailUrl}}">
+             src="assets/images/wines/default.svg">
         <img *ngIf="!wine.default"
-             (click)="seeWineDetails(wine);" mat-list-avatar src="assets/images/wines/default.png">
+             (click)="seeWineDetails(wine);" mat-list-avatar src="assets/images/wines/default.svg">
         <h3 mat-line [class.cp]="wine.default" (click)="seeWineDetails(wine);"> {{wine.name}} </h3>
         <p mat-line [class.cp]="wine.default" (click)="seeWineDetails(wine);">
           <span>{{wine.alterEgo}}</span>
@@ -45,7 +45,7 @@
   </div>
 </div>
 <div id="right" [@fadeInOut]>
-  <h2 class="header__title">{{ 'createWine' | translate }}</h2>
+  <!-- <h2 class="header__title">{{ 'createWine' | translate }}</h2>
   <div id="form-loading" *ngIf="!wines">
     <form>
       <div class="input-container">
@@ -84,7 +84,7 @@
       </button>
       <div *ngIf="error">{{error | translate}}</div>
     </form>
-  </div>
+  </div> -->
 
   <div id="wines-json">
     <h2 class="header__title">{{ 'firstTwoWinesById' | translate }}</h2>
