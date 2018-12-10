@@ -13,7 +13,6 @@ import { SharedModule } from './shared/shared.module';
 import { NgxExampleLibraryModule } from '@ismaestro/ngx-example-library';
 import { FirebaseModule } from './shared/modules/firebase.module';
 import { SentryErrorHandler } from './core/sentry.errorhandler';
-import { UiModule } from './ui/ui.module';
 import {WineServiceClient} from '../services/wine.service.client';
 
 @NgModule({
@@ -36,7 +35,6 @@ import {WineServiceClient} from '../services/wine.service.client';
     SharedModule,
     AppRoutingModule,
     HttpClientModule,
-    UiModule,
   ],
   declarations: [
     AppComponent

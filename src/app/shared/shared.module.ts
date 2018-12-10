@@ -3,6 +3,7 @@ import {MaterialModule} from './modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 import {SpinnerComponent} from './components/spinner/spinner.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {SearchBarComponent} from './components/search-bar/search-bar.component';
@@ -17,7 +18,9 @@ import {WebStorageModule} from 'ngx-store';
 import {WineLoadingComponent} from './components/wine-loading/wine-loading.component';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
-import { UiModule } from '../ui/ui.module';
+import { LayoutComponent } from './components/layout/layout.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { MainContentComponent } from './components/main-content/main-content.component';
 
 @NgModule({
   imports: [
@@ -30,7 +33,7 @@ import { UiModule } from '../ui/ui.module';
     NgxExampleLibraryModule,
     WebStorageModule,
     NgxScrollToFirstInvalidModule,
-    UiModule
+    FormsModule,
   ],
   declarations: [
     HomePageComponent,
@@ -41,7 +44,10 @@ import { UiModule } from '../ui/ui.module';
     SpinnerComponent,
     WineCardComponent,
     WineLoadingComponent,
-    LoadingPlaceholderComponent
+    LoadingPlaceholderComponent,
+    LayoutComponent,
+    MainNavComponent,
+    MainContentComponent,
   ],
   exports: [
     CommonModule,
@@ -58,7 +64,9 @@ import { UiModule } from '../ui/ui.module';
     WineLoadingComponent,
     NgxScrollToFirstInvalidModule,
     LoadingPlaceholderComponent,
-    UiModule,
+    LayoutComponent,
+    MainNavComponent,
+    MainContentComponent,
   ]
 })
 

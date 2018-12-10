@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {WineServiceClient} from '../../../services/wine.service.client';
-import { Wine } from '../../modules/wines/shared/wine.model';
+import {WineServiceClient} from '../../../../services/wine.service.client';
+import { Wine } from '../../../modules/wines/shared/wine.model';
 
 @Component({
   selector: 'app-main-nav',

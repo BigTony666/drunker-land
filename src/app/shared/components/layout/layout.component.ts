@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Wine } from '../../modules/wines/shared/wine.model';
+import { Wine } from '../../../modules/wines/shared/wine.model';
 
 @Component({
   selector: 'app-layout',
