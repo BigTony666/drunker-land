@@ -20,11 +20,25 @@ export class WineServiceClient {
   getWinesByName = name =>
     fetch(this.wineUrl + '/name/' + name)
       .then(res => res.json())
-  //
-  // getWinesByVintage(name: String): Observable<Wine[]> {
-  //   const url = this.wineUrl + '/name/' + name;
-  //   console.log(url);
-  //   return null;
-  // }
+
+  getWinesByVintage = vintage =>
+    fetch(this.wineUrl + '/vintage/' + vintage)
+      .then(res => res.json())
+
+  getWinesByColor = color =>
+    fetch(this.wineUrl + '/color/' + color)
+      .then(res => res.json())
+
+  getWinesByRegion = region =>
+    fetch(this.wineUrl + '/region/' + region)
+      .then(res => res.json())
+
+  getWinesByAppellation = appellation =>
+    fetch(this.wineUrl + '/appellation/' + appellation)
+      .then(res => res.json())
+
+  getWinesByCountry = country =>
+    fetch(this.wineUrl + '/country/' + country)
+      .then(res => res.json())
 }
 

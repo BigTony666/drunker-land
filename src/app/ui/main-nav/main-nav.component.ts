@@ -38,6 +38,46 @@ export class MainNavComponent implements OnInit {
           this.searchService.getWinesByName(value)
             .then(response => this.wines.emit(response));
         }
+        break;
+      }
+      case 'Vintage': {
+        if (value !== '') {
+          this.searchService.getWinesByVintage(value)
+            .then(response => this.wines.emit(response));
+        }
+        break;
+      }
+      case 'Color': {
+        if (value !== '') {
+          this.searchService.getWinesByColor(value)
+            .then(response => this.wines.emit(response));
+        }
+        break;
+      }
+      case 'Region': {
+        if (value !== '') {
+          this.searchService.getWinesByRegion(value)
+            .then(response => this.wines.emit(response));
+        }
+        break;
+      }
+      case 'Appellation': {
+        if (value !== '') {
+          this.searchService.getWinesByAppellation(value)
+            .then(response => this.wines.emit(response));
+        }
+        break;
+      }
+      case 'Country': {
+        if (value !== '') {
+          this.searchService.getWinesByCountry(value)
+            .then(response => this.wines.emit(response));
+        }
+        break;
+      }
+      default: {
+        this.wines.emit(null);
+        break;
       }
     }
   }
