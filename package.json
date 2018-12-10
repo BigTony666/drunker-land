@@ -3,7 +3,7 @@
   "version": "7.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "ng serve --open",
+    "start": "ng serve",
     "http-server": "http-server dist/ -c-1",
     "build": "ng build",
     "build:prod": "ng build --prod",

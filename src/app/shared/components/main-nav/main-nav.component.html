@@ -1,21 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Search</a>
-  <div class="collapse navbar-collapse">
-    <div class="form-inline input-group my-2 my-lg-0" >
-      <select [(value)]="key" name="state">
-        <option value="" disabled>Option</option>
-        <option *ngFor="let condition of conditions">
-          {{condition.name}}
-        </option>
-      </select>
-      <input class="form-control mr-sm-2" [(value)]="value" placeholder="Quick search here">
-      <button class="input-group-append btn btn-outline-success my-2 my-sm-0" (click)="search(key, value)" type="submit">
-        Search
-      </button>
-    </div>
-    <div class="list-inline my-4" id="log-access">
-      <a class="btn list-inline-item" id="sign_in" href="/sign_in">Login / Sign up</a>
-    </div>
-  </div>
-</nav>
+<div class="search">
+  <mat-form-field>
+    <mat-select [(value)]="key">
+      <mat-option value="" disabled>Select One</mat-option>
+      <mat-option *ngFor="let condition of conditions" [value]="condition.name">
+        {{condition.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
+  <mat-form-field>
+    <input matInput type="text" placeholder="Quick search here" [(ngModel)]="inputValue">
+    <button mat-button *ngIf="inputValue" matSuffix mat-icon-button aria-label="Clear" (click)="inputValue=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="search(key)" type="submit">
+    Search
+  </button>
+</div>
