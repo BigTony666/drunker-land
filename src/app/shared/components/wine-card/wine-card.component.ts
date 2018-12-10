@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {AppConfig} from '../../../configs/app.config';
-import {WineService} from '../../../modules/wines/shared/wine.service';
-import {Wine} from '../../../modules/wines/shared/wine.model';
-import {Router} from '@angular/router';
+import { Component, Input, OnInit, Inject } from '@angular/core';
+import { APP_CONFIG, AppConfig } from '../../../configs/app.config';
+import { WineService } from '../../../modules/wines/shared/wine.service';
+import { Wine } from '../../../modules/wines/shared/wine.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wine-card',
@@ -14,10 +14,14 @@ export class WineCardComponent implements OnInit {
   @Input() wine: Wine;
 
   canVote: boolean;
+  appConfig: any;
+  externalLink: string;
 
   constructor(private wineService: WineService,
-              private router: Router) {
+              private router: Router,
+              @Inject(APP_CONFIG) appConfig: any) {
     this.canVote = WineService.checkIfUserCanVote();
+    this.appConfig = appConfig;
   }
 
   ngOnInit() {

@@ -8,9 +8,10 @@ export const AppConfig: any = {
     error404: '404'
   },
   votesLimit: 3,
-  topWinesLimit: 4,
+  topWinesLimit: 100,
   snackBarDuration: 3000,
   repositoryURL: '',
   sentryDSN: '',
   backendURL: 'http://localhost:8080',
+  externalServiceURL: 'https://www.globalwinescore.com'
 };
