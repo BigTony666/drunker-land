@@ -17,7 +17,16 @@ export class UserService {
     }
 
     register(user: User) {
-        return this.http.post(`${environment.apiUrl}/users/register`, user);
+        if (user.role === 'Consumer') {
+          return this.http.post(`${environment.apiUrl}/rest/api/consumers`, user);
+        } else if (user.role === 'Supplier') {
+          return this.http.post(`${environment.apiUrl}/rest/api/suppliers`, user);
+        } else if (user.role === 'Reviewer') {
+          return this.http.post(`${environment.apiUrl}/rest/api/reviewers`, user);
+        } else if (user.role === 'Vendor') {
+          return this.http.post(`${environment.apiUrl}/rest/api/vendors`, user);
+        }
+
     }
 
     update(user: User) {

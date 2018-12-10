@@ -51,7 +51,12 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          if (data !== null) {
+            this.router.navigate([this.returnUrl]);
+          } else {
+            this.alertService.error("No User Found!");
+            this.loading = false;
+          }
         },
         error => {
           this.alertService.error(error);
