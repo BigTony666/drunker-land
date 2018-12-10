@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Wine} from '../../../models/wine.model.client';
+import {WineServiceClient} from '../../../services/wine.service.client';
 
 @Component({
   selector: 'app-main-nav',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MainNavComponent implements OnInit {
+  @Output() wines = new EventEmitter<Wine[]>();
 
   conditions = [
     {name: 'Name'},
@@ -20,18 +23,23 @@ export class MainNavComponent implements OnInit {
   key = '';
   value = '';
 
-  constructor() { }
+  constructor(
+    private searchService: WineServiceClient
+  ) { }
 
   ngOnInit() {
 
   }
 
-  search() {
-    // alert('search for ' + key + value);
-  }
-
-  setCondition(condition) {
-    console.log(condition);
+  search = (key, value) => {
+    switch (key) {
+      case 'Name': {
+        if (value !== '') {
+          this.searchService.getWinesByName(value)
+            .then(response => this.wines.emit(response));
+        }
+      }
+    }
   }
 
 }

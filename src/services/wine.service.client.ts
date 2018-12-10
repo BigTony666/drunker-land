@@ -1,35 +1,30 @@
 import {mainUrl} from './common';
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Wine} from '../models/wine.model.client';
-
-const httpOptions = {
-  headers: new HttpHeaders(
-    {'Content-Type': 'application/json'})
-};
 
 @Injectable()
 export class WineServiceClient {
   private wineUrl = mainUrl + '/rest/api/wines';
 
-  // const test = {
-  //   name: 'zilan',
-  // };
-
   constructor(
-    private http: HttpClient
-    // private searchService:
   ) { }
-
-  getWines(): Observable<Wine[]> {
-    return this.http.get<Wine[]>(this.wineUrl);
+  //
+  // getWines(): Observable<Wine[]> {
+  //   return this.http.get<Wine[]>(this.wineUrl);
+  // }
+  //
+  getWineById = id => {
+    fetch(this.wineUrl + '/' + id)
+      .then(res => res.json());
   }
 
-  getWine(id: Number): Observable<Wine> {
-    const url = this.wineUrl + '/' + id;
-    console.log(url);
-    return null;
-  }
+  getWinesByName = name =>
+    fetch(this.wineUrl + '/name/' + name)
+      .then(res => res.json())
+  //
+  // getWinesByVintage(name: String): Observable<Wine[]> {
+  //   const url = this.wineUrl + '/name/' + name;
+  //   console.log(url);
+  //   return null;
+  // }
 }
 

@@ -1,6 +1,7 @@
 export class Wine {
   id: Number;
   name: String;
+  nameUrl: String;
   appellation: String;
   color: String;
   region: String;

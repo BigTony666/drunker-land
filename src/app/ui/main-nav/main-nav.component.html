@@ -17,14 +17,14 @@
       </li>
     </ul>
     <div class="form-inline input-group my-2 my-lg-0" >
-      <select [(ngModel)]="key" name="state" (change)="setCondition(conditions)">
+      <select [(ngModel)]="key" name="state">
         <option value="" disabled>Option</option>
         <option *ngFor="let condition of conditions">
           {{condition.name}}
         </option>
       </select>
       <input class="form-control mr-sm-2" [(ngModel)]="value" placeholder="Quick search here">
-      <button class="input-group-append btn btn-outline-success my-2 my-sm-0" (click)="search()" type="submit">
+      <button class="input-group-append btn btn-outline-success my-2 my-sm-0" (click)="search(key, value)" type="submit">
         Search
       </button>
     </div>
