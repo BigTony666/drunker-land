@@ -31,12 +31,10 @@
       </mat-expansion-panel>
     </mat-card-content>
     <mat-form-field>
-      <mat-select [(value)]="selected">
-        <mat-option value="1">1</mat-option>
-        <mat-option value="2">2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
+      <mat-select [(value)]="selectedNum">
+        <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button>ADD</button>
+    <button mat-button (click)="addToCart(selectedNum)">ADD</button>
   </mat-card>
 </mat-card-actions>

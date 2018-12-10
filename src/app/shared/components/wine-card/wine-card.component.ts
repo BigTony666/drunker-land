@@ -3,6 +3,7 @@ import { APP_CONFIG, AppConfig } from '../../../configs/app.config';
 import { WineService } from '../../../modules/wines/shared/wine.service';
 import { Wine } from '../../../modules/wines/shared/wine.model';
 import { Router } from '@angular/router';
+import { validateBasis } from '../../../../../node_modules/@angular/flex-layout';
 
 @Component({
   selector: 'app-wine-card',
@@ -17,6 +18,7 @@ export class WineCardComponent implements OnInit {
   appConfig: any;
   externalLink: string;
   selectedNum: number;
+  options: number[];
 
   constructor(private wineService: WineService,
               private router: Router,
@@ -27,6 +29,7 @@ export class WineCardComponent implements OnInit {
 
   ngOnInit() {
     this.selectedNum = 1;
+    this.options = Array.from(new Array(30), (_, index) => index + 1);
   }
 
   like(wine: Wine): Promise<void> {
@@ -36,10 +39,15 @@ export class WineCardComponent implements OnInit {
     }
   }
 
-  seeWineDetails(wine): void {
+  seeWineDetails(wine: Wine): void {
     if (wine.default) {
       this.router.navigate([AppConfig.routes.wines + '/' + wine.id]);
     }
+  }
+
+  addToCart(num: number) {
+    //TODO: pass to the user's cart
+    console.log(num);
   }
 
 }
