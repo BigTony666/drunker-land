@@ -46,9 +46,8 @@ export class WineService {
     };
   }
 
-  // FIXME: Get wine from here using router
   getWines(): Observable<Wine[]> {
-    return this.http.get<Wine[]>(AppConfig.backendURL + '/rest/api/wines/816')
+    return this.http.get<Wine[]>(AppConfig.backendURL + '/rest/api/wines')
       .pipe(
         tap((wine) => {
           LoggerService.log('fetched wines');
