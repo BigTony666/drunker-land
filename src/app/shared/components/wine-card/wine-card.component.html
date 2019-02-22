@@ -1,19 +1,21 @@
 <mat-card-actions>
   <mat-card class="wine-card" *ngIf="wine">
     <mat-card-header>
-      <mat-card-title>{{wine.name}}</mat-card-title>
+      <mat-card-title>
+        <a target="_blank" href="https://www.globalwinescore.com/wine-score/{{wine.nameUrl}}/{{wine.vintage}}/">{{wine.name}}</a>
+      </mat-card-title>
       <mat-card-subtitle class="body-1">
         <span>Global Score:</span>{{wine.score}}
       </mat-card-subtitle>
       <mat-card-subtitle>
       </mat-card-subtitle>
       <div class="flex-spacer"></div>
-      <div class="wine-actions">
-        {{wine.likes}}
-        <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}" [matTooltipPosition]="'above'" class="icon__like--red"
-          (click)="like(wine)">favorite
-        </mat-icon>
-      </div>
+      <!--<div class="wine-actions">-->
+        <!--{{wine.likes}}-->
+        <!--<mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}" [matTooltipPosition]="'above'" class="icon__like&#45;&#45;red"-->
+          <!--(click)="like(wine)">favorite-->
+        <!--</mat-icon>-->
+      <!--</div>-->
     </mat-card-header>
     <!-- <img (click)="seeWineDetails(wine)" mat-card-image src="{{wine.avatarUrl}}"> -->
     <mat-card-content>
@@ -30,11 +32,13 @@
         </ng-template>
       </mat-expansion-panel>
     </mat-card-content>
-    <mat-form-field>
-      <mat-select [(value)]="selectedNum">
-        <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-button (click)="addToCart(selectedNum)">ADD</button>
+    <div *ngIf="log">
+      <mat-form-field>
+        <mat-select [(value)]="selectedNum">
+          <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-button (click)="addToCart(selectedNum)">ADD</button>
+    </div>
   </mat-card>
 </mat-card-actions>

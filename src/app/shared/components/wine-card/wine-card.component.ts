@@ -4,6 +4,7 @@ import { WineService } from '../../../modules/wines/shared/wine.service';
 import { Wine } from '../../../modules/wines/shared/wine.model';
 import { Router } from '@angular/router';
 import { validateBasis } from '../../../../../node_modules/@angular/flex-layout';
+import {AuthenticationService} from '../../../_services';
 
 @Component({
   selector: 'app-wine-card',
@@ -20,24 +21,31 @@ export class WineCardComponent implements OnInit {
   selectedNum: number;
   options: number[];
 
+  log: boolean;
+  userRole: string;
+
   constructor(private wineService: WineService,
+              private authenticationService: AuthenticationService,
               private router: Router,
               @Inject(APP_CONFIG) appConfig: any) {
     this.canVote = WineService.checkIfUserCanVote();
     this.appConfig = appConfig;
+    this.authenticationService.log.subscribe( value => {
+      this.log = value;
+    });
   }
 
   ngOnInit() {
     this.selectedNum = 1;
     this.options = Array.from(new Array(30), (_, index) => index + 1);
   }
-
-  like(wine: Wine): Promise<void> {
-    if (this.canVote) {
-      wine.like();
-      return this.wineService.updateWine(wine);
-    }
-  }
+  //
+  // like(wine: Wine): Promise<void> {
+  //   if (this.canVote) {
+  //     wine.like();
+  //     return this.wineService.updateWine(wine);
+  //   }
+  // }
 
   seeWineDetails(wine: Wine): void {
     if (wine.default) {
@@ -46,7 +54,7 @@ export class WineCardComponent implements OnInit {
   }
 
   addToCart(num: number) {
-    //TODO: pass to the user's cart
+    // TODO: pass to the user's cart
     console.log(num);
   }
 
